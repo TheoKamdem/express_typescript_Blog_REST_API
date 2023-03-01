@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: "docker-express-typescript-mongo"
+    build: .
+    command: "nodemon /src/app.ts"
+    ports:
+      - "4000:4000"
+    depends_on:
+      - "mongo"  
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
